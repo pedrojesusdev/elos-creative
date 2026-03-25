@@ -1,0 +1,15 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [
+    "static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [
+    "static/chunks/_1f001680._.js",
+    "static/chunks/Transferências_elos-creative_a0ff3932._.js",
+    "static/chunks/turbopack-Transferências_elos-creative_01189f0c._.js"
+  ],
+  "pages": {},
+  "ampFirstPages": []
+}
