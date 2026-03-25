@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, StaggerReveal, StaggerItem } from "@/components/animations/Reveal";
 import { Zap, Target, Eye, Heart } from "lucide-react";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 
 const values = [
   { icon: Zap, label: "Criatividade sem limites", desc: "Cada projeto é único, construído do zero com identidade própria." },
@@ -18,43 +19,36 @@ export function AboutSection() {
 
   return (
     <section id="sobre" className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(160,32,240,0.06) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse, rgba(160,32,240,0.05) 0%, transparent 70%)" }} />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-          {/* Left: text */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div>
             <Reveal>
               <span className="section-label">Sobre a Elos</span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display font-black text-display-lg text-offwhite mb-6">
-                Conexões que{" "}
-                <span style={{ color: "var(--color-neon-purple)", textShadow: "0 0 30px rgba(160,32,240,0.5)" }}>
-                  transformam
-                </span>
+                Conexões que <span style={{ color: "var(--color-neon-purple)" }}>transformam</span>
                 <br />marcas em movimento.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-offwhite/55 text-lg leading-relaxed mb-6">
+              <p className="text-offwhite/60 text-lg leading-relaxed mb-6">
                 A Elos Creative nasceu da crença de que toda marca tem uma história poderosa para contar.
                 Nossa missão é ser o elo entre sua visão e o público certo — com design, estratégia e
                 criatividade que geram impacto real.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <p className="text-offwhite/40 leading-relaxed mb-10">
+              <p className="text-offwhite/50 leading-relaxed mb-10">
                 Trabalhamos com marcas que querem sair do óbvio, crescer com consistência e se destacar
-                em um feed cada vez mais saturado. Não entregamos posts — entregamos presença.
+                em um feed cada vez mais competitivo.
               </p>
             </Reveal>
 
-            {/* Progress bars */}
             <div className="space-y-5" ref={ref}>
               {[
                 { label: "Gestão de Social Media", pct: 95 },
@@ -63,13 +57,13 @@ export function AboutSection() {
               ].map(({ label, pct }) => (
                 <div key={label}>
                   <div className="flex justify-between text-xs font-mono mb-2">
-                    <span className="text-offwhite/60">{label}</span>
+                    <span className="text-offwhite/65">{label}</span>
                     <span style={{ color: "var(--color-neon-cyan)" }}>{pct}%</span>
                   </div>
-                  <div className="h-px bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-[2px] bg-white/10 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full rounded-full"
-                      style={{ background: "linear-gradient(90deg, #A020F0, #00FFFF)" }}
+                      style={{ background: "linear-gradient(90deg, #A020F0, #00E8FF)" }}
                       initial={{ width: 0 }}
                       animate={inView ? { width: `${pct}%` } : { width: 0 }}
                       transition={{ duration: 1.2, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
@@ -80,21 +74,46 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Right: values grid */}
-          <StaggerReveal staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {values.map(({ icon: Icon, label, desc }) => (
-              <StaggerItem key={label}>
-                <div className="card-glass p-6 rounded-2xl group cursor-default transition-all duration-300 hover:-translate-y-1 border-gradient">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:shadow-glow-purple"
-                    style={{ background: "rgba(160,32,240,0.15)", border: "1px solid rgba(160,32,240,0.2)" }}>
-                    <Icon size={18} style={{ color: "var(--color-neon-purple)" }} />
+          <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=80"
+                alt="Equipe em reunião criativa"
+                className="w-full h-44 object-cover rounded-2xl border border-white/10"
+                loading="lazy"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80"
+                alt="Dashboard e estratégia digital"
+                className="w-full h-44 object-cover rounded-2xl border border-white/10"
+                loading="lazy"
+              />
+            </div>
+
+            <VideoPlayer
+              src="https://player.vimeo.com/external/434045526.sd.mp4?s=f7e7aa3ef7db4be6d26f737e7981c2f7f2369d6d&profile_id=139&oauth2_token_id=57447761"
+              className="rounded-2xl border border-white/10"
+              autoPlay
+              muted
+              loop
+              showControls
+            />
+
+            <StaggerReveal staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {values.map(({ icon: Icon, label, desc }) => (
+                <StaggerItem key={label}>
+                  <div className="card-glass p-5 rounded-2xl group cursor-default transition-all duration-300 hover:-translate-y-1 border-gradient">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
+                      style={{ background: "rgba(160,32,240,0.12)", border: "1px solid rgba(160,32,240,0.2)" }}>
+                      <Icon size={18} style={{ color: "var(--color-neon-purple)" }} />
+                    </div>
+                    <p className="font-display font-semibold text-sm text-offwhite mb-2">{label}</p>
+                    <p className="text-offwhite/45 text-xs leading-relaxed">{desc}</p>
                   </div>
-                  <p className="font-display font-semibold text-sm text-offwhite mb-2">{label}</p>
-                  <p className="text-offwhite/40 text-xs leading-relaxed">{desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerReveal>
+                </StaggerItem>
+              ))}
+            </StaggerReveal>
+          </div>
         </div>
       </div>
     </section>

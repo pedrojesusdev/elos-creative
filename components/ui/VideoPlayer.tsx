@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 
 interface VideoPlayerProps {
   src: string;
@@ -9,6 +9,7 @@ interface VideoPlayerProps {
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
+  muted?: boolean;
   showControls?: boolean;
   aspectRatio?: "16/9" | "4/3" | "1/1" | "9/16";
 }
@@ -19,6 +20,7 @@ export function VideoPlayer({
   className = "",
   autoPlay = true,
   loop = true,
+  muted = true,
   showControls = false,
   aspectRatio = "16/9",
 }: VideoPlayerProps) {
@@ -32,11 +34,19 @@ export function VideoPlayer({
     "9/16": "aspect-[9/16]",
   };
 
-  const toggle = () => {
+  const toggle = async () => {
     if (!videoRef.current) return;
-    if (playing) videoRef.current.pause();
-    else videoRef.current.play();
-    setPlaying(!playing);
+
+    if (playing) {
+      videoRef.current.pause();
+      return;
+    }
+
+    try {
+      await videoRef.current.play();
+    } catch {
+      setPlaying(false);
+    }
   };
 
   return (
@@ -47,8 +57,9 @@ export function VideoPlayer({
         poster={poster}
         autoPlay={autoPlay}
         loop={loop}
-        muted
+        muted={muted}
         playsInline
+        controls={!showControls}
         className="w-full h-full object-cover"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
@@ -60,8 +71,8 @@ export function VideoPlayer({
             onClick={toggle}
             className="w-14 h-14 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
             style={{
-              background: "rgba(13,13,13,0.7)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              background: "rgba(26,26,26,0.6)",
+              border: "1px solid rgba(245,245,245,0.35)",
               backdropFilter: "blur(10px)",
             }}
           >
