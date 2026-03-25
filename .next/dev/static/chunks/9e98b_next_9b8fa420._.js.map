@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/pedro/Transfer%C3%AAncias/elos-creative/node_modules/next/dist/compiled/react/jsx-dev-runtime.js"],"sourcesContent":["'use strict';\n\nif (process.env.NODE_ENV === 'production') {\n  module.exports = require('./cjs/react-jsx-dev-runtime.production.min.js');\n} else {\n  module.exports = require('./cjs/react-jsx-dev-runtime.development.js');\n}\n"],"names":[],"mappings":"AAEI;AAFJ;AAEA;;KAEO;IACL,OAAO,OAAO;;;;;AAChB","ignoreList":[0]}},
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/pedro/Transfer%C3%AAncias/elos-creative/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
-}
