@@ -9,12 +9,12 @@
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'Space Mono', monospace;
 
-  --color-offwhite: #F5F0EB;
+  --color-offwhite: #F5F5F5;
   --color-graphite: #1A1A1A;
   --color-neon-purple: #A020F0;
-  --color-neon-cyan: #00FFFF;
-  --color-surface-dark: #0D0D0D;
-  --color-surface-card: #161616;
+  --color-neon-cyan: #00E8FF;
+  --color-surface-dark: #121212;
+  --color-surface-card: #1A1A1A;
 
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -79,12 +79,12 @@ body::before {
 /* Neon text effects */
 .text-neon-purple {
   color: var(--color-neon-purple);
-  text-shadow: 0 0 20px rgba(160, 32, 240, 0.8), 0 0 40px rgba(160, 32, 240, 0.4);
+  text-shadow: 0 0 12px rgba(160, 32, 240, 0.35);
 }
 
 .text-neon-cyan {
   color: var(--color-neon-cyan);
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
+  text-shadow: 0 0 12px rgba(0, 232, 255, 0.3);
 }
 
 /* Shimmer text gradient */
@@ -127,10 +127,10 @@ body::before {
 
 /* Glow effects */
 .glow-purple {
-  box-shadow: 0 0 20px rgba(160,32,240,0.5), 0 0 60px rgba(160,32,240,0.2);
+  box-shadow: 0 0 14px rgba(160,32,240,0.22);
 }
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(0,255,255,0.5), 0 0 60px rgba(0,255,255,0.2);
+  box-shadow: 0 0 14px rgba(0,232,255,0.2);
 }
 
 /* Grid pattern background */
@@ -180,12 +180,12 @@ body::before {
 @layer components {
   .btn-primary {
     @apply relative inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-sm tracking-widest uppercase overflow-hidden transition-all duration-300;
-    background: linear-gradient(135deg, #A020F0, #7B00C4);
+    background: linear-gradient(135deg, rgba(160,32,240,0.88), rgba(111,32,170,0.88));
     border: 1px solid rgba(160,32,240,0.5);
-    box-shadow: 0 0 20px rgba(160,32,240,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    box-shadow: 0 8px 22px rgba(160,32,240,0.2), inset 0 1px 0 rgba(255,255,255,0.12);
   }
   .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(160,32,240,0.6), 0 0 80px rgba(160,32,240,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+    box-shadow: 0 12px 26px rgba(160,32,240,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
     transform: translateY(-2px);
   }
   .btn-primary::after {

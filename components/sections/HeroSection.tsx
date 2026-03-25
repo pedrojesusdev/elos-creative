@@ -29,7 +29,7 @@ function AnimatedBackground() {
       size: number; color: string; alpha: number;
     }[] = [];
 
-    const colors = ["rgba(160,32,240,", "rgba(0,255,255,", "rgba(180,78,245,"];
+    const colors = ["rgba(160,32,240,", "rgba(0,232,255,", "rgba(180,78,245,"];
 
     for (let i = 0; i < 60; i++) {
       particles.push({
@@ -53,7 +53,7 @@ function AnimatedBackground() {
       // Background gradient orbs
       const orbs = [
         { x: canvas.width * 0.2, y: canvas.height * 0.3, r: 400, color: "rgba(160,32,240,0.06)" },
-        { x: canvas.width * 0.8, y: canvas.height * 0.7, r: 350, color: "rgba(0,255,255,0.04)" },
+        { x: canvas.width * 0.8, y: canvas.height * 0.7, r: 350, color: "rgba(0,232,255,0.04)" },
         { x: canvas.width * 0.5 + Math.sin(t) * 80, y: canvas.height * 0.5 + Math.cos(t * 0.7) * 60, r: 300, color: "rgba(160,32,240,0.04)" },
       ];
 
@@ -66,7 +66,7 @@ function AnimatedBackground() {
       });
 
       // Grid lines
-      ctx.strokeStyle = "rgba(160,32,240,0.03)";
+      ctx.strokeStyle = "rgba(160,32,240,0.02)";
       ctx.lineWidth = 1;
       for (let x = 0; x < canvas.width; x += 80) {
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
@@ -127,7 +127,7 @@ export function HeroSection() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           className="absolute left-0 right-0 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(0,255,255,0.3), transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(0,232,255,0.22), transparent)" }}
           animate={{ top: ["-1%", "101%"] }}
           transition={{ duration: 6, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
         />
@@ -177,7 +177,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="max-w-2xl mx-auto text-offwhite/55 text-lg md:text-xl leading-relaxed mb-12 font-body"
+          className="max-w-2xl mx-auto text-offwhite/68 text-lg md:text-xl leading-relaxed mb-12 font-body"
         >
           Estratégia digital, design criativo e gestão de social media que transformam seguidores em clientes —
           e marcas em{" "}
@@ -215,7 +215,7 @@ export function HeroSection() {
           ].map(({ value, label }) => (
             <div key={label} className="text-center">
               <p className="font-display font-black text-3xl md:text-4xl mb-1"
-                style={{ color: "var(--color-neon-cyan)", textShadow: "0 0 20px rgba(0,255,255,0.5)" }}>
+                style={{ color: "var(--color-neon-cyan)", textShadow: "0 0 10px rgba(0,232,255,0.3)" }}>
                 {value}
               </p>
               <p className="text-offwhite/40 text-xs font-mono tracking-widest uppercase">{label}</p>
