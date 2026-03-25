@@ -23,19 +23,19 @@ const portfolioItems: PortfolioItem[] = [
     id: 1,
     type: "image",
     category: "Branding",
-    title: "Marca Aurora — Identidade Visual Completa",
-    description: "Criação de identidade visual para startup de wellness, incluindo logo, paleta e guia de marca.",
-    src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&q=80",
-    thumb: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=75",
-    tags: ["Branding", "Logo", "Guidelines"],
+    title: "Festa de 15 anos — Direção Criativa",
+    description: "Cobertura visual com foco em storytelling para debutante, cenografia e conteúdo para redes sociais.",
+    src: "/media/aniversario-15-retrato.jpg",
+    thumb: "/media/aniversario-15-retrato.jpg",
+    tags: ["Evento", "Cobertura", "Storytelling"],
     color: "#A020F0",
   },
   {
     id: 2,
     type: "video",
     category: "Social Media",
-    title: "Reels de Conversão — Campanha Beauty",
-    description: "Série de vídeos curtos para campanha de performance, com foco em retenção nos primeiros 3 segundos.",
+    title: "Making of da festa — Reels",
+    description: "Vídeo vertical com cortes rápidos mostrando bastidores, mesa principal e momento da aniversariante.",
     src: "https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761",
     thumb: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&q=80",
     tags: ["Reels", "Meta Ads", "Motion"],
@@ -45,10 +45,10 @@ const portfolioItems: PortfolioItem[] = [
     id: 3,
     type: "image",
     category: "Design",
-    title: "Estúdio Lumina — Rebranding",
-    description: "Reposicionamento visual completo para estúdio de fotografia premium.",
-    src: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1400&q=80",
-    thumb: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=700&q=75",
+    title: "Família em branco — Ensaio lifestyle",
+    description: "Ensaio familiar para conteúdo emocional e humanizado com foco em conexão e naturalidade.",
+    src: "/media/familia-branco.jpg",
+    thumb: "/media/familia-branco.jpg",
     tags: ["Rebranding", "Editorial", "Digital"],
     color: "#A020F0",
   },
@@ -56,38 +56,40 @@ const portfolioItems: PortfolioItem[] = [
     id: 4,
     type: "image",
     category: "Branding",
-    title: "Arquiteta Renata Vaz — Presença Digital",
-    description: "Direção visual e planejamento de conteúdo para arquitetura autoral.",
-    src: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=1400&q=80",
-    thumb: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=700&q=75",
+    title: "Cenografia roxa — Mesa principal",
+    description: "Captação do cenário completo com paleta roxa e elementos decorativos para peças de divulgação.",
+    src: "/media/cenario-roxo-15.jpg",
+    thumb: "/media/cenario-roxo-15.jpg",
     tags: ["Instagram", "Conteúdo", "Estética"],
     color: "#00E8FF",
   },
   {
     id: 5,
-    type: "video",
+    type: "image",
     category: "Design",
-    title: "Behind the Brand — Captação & Edição",
-    description: "Vídeo manifesto para reforçar posicionamento e autoridade de marca no digital.",
-    src: "https://player.vimeo.com/external/434045526.sd.mp4?s=f7e7aa3ef7db4be6d26f737e7981c2f7f2369d6d&profile_id=139&oauth2_token_id=57447761",
-    thumb: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=900&q=80",
+    title: "Chá revelação — ensaio gestante",
+    description: "Registro sensível do casal em cenário clean para narrativa de maternidade e família.",
+    src: "/media/cha-revelacao-casal.jpg",
+    thumb: "/media/cha-revelacao-casal.jpg",
     tags: ["Vídeo", "Storytelling", "Branding"],
     color: "#A020F0",
   },
   {
     id: 6,
-    type: "image",
+    type: "video",
     category: "Social Media",
-    title: "EduTech Nexo — Lançamento de Produto",
-    description: "Estratégia e criação para lançamento de plataforma EdTech com alta conversão de leads.",
-    src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1400&q=80",
-    thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&q=75",
+    title: "Edição teaser — festa de 15",
+    description: "Teaser audiovisual com foco em impacto inicial para impulsionamento nas redes sociais.",
+    src: "https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761",
+    thumb: "/media/aniversario-15-retrato.jpg",
     tags: ["Lançamento", "Reels", "Estratégia"],
     color: "#00E8FF",
   },
 ];
 
 const categories = ["Todos", "Branding", "Social Media", "Design"];
+
+const fallbackMedia = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect width='1200' height='900' fill='%231A1A1A'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23F5F5F5' font-family='Arial' font-size='40'%3EM%C3%ADdia%20Elos%3C/text%3E%3C/svg%3E";
 
 function PortfolioCard({ item, onClick }: { item: PortfolioItem; onClick: () => void }) {
   const ref = useRef(null);
@@ -114,6 +116,7 @@ function PortfolioCard({ item, onClick }: { item: PortfolioItem; onClick: () => 
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.45 }}
             loading="lazy"
+            onError={(e) => { e.currentTarget.src = fallbackMedia; }}
           />
         )}
       </div>
@@ -162,7 +165,7 @@ function Lightbox({ item, onClose, onPrev, onNext }: {
           {item.type === "video" ? (
             <VideoPlayer src={item.src} poster={item.thumb} autoPlay loop muted={false} showControls className="max-h-[65vh]" />
           ) : (
-            <img src={item.src} alt={item.title} className="w-full object-contain max-h-[65vh]" />
+            <img src={item.src} alt={item.title} className="w-full object-contain max-h-[65vh]" onError={(e) => { e.currentTarget.src = fallbackMedia; }} />
           )}
 
           <div className="p-6 border-t border-white/10">

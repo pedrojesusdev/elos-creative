@@ -13,6 +13,8 @@ const values = [
   { icon: Heart, label: "Relacionamento verdadeiro", desc: "Parceria de longo prazo, não apenas entrega de serviço." },
 ];
 
+const fallbackMedia = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect width='1200' height='900' fill='%231A1A1A'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23F5F5F5' font-family='Arial' font-size='40'%3EM%C3%ADdia%20Elos%3C/text%3E%3C/svg%3E";
+
 export function AboutSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -32,28 +34,27 @@ export function AboutSection() {
             <Reveal delay={0.1}>
               <h2 className="font-display font-black text-display-lg text-offwhite mb-6">
                 Conexões que <span style={{ color: "var(--color-neon-purple)" }}>transformam</span>
-                <br />marcas em movimento.
+                <br />momentos em conteúdo.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-offwhite/60 text-lg leading-relaxed mb-6">
-                A Elos Creative nasceu da crença de que toda marca tem uma história poderosa para contar.
-                Nossa missão é ser o elo entre sua visão e o público certo — com design, estratégia e
-                criatividade que geram impacto real.
+                Produzimos cobertura visual para eventos e famílias com estética consistente,
+                narrativa emocional e linguagem de marca pronta para redes sociais.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="text-offwhite/50 leading-relaxed mb-10">
-                Trabalhamos com marcas que querem sair do óbvio, crescer com consistência e se destacar
-                em um feed cada vez mais competitivo.
+                Do briefing à edição final, organizamos captação de foto e vídeo para entregar
+                material estratégico, sensível e com alto potencial de engajamento.
               </p>
             </Reveal>
 
             <div className="space-y-5" ref={ref}>
               {[
-                { label: "Gestão de Social Media", pct: 95 },
-                { label: "Design & Branding", pct: 92 },
-                { label: "Estratégia de Conteúdo", pct: 88 },
+                { label: "Captação de eventos", pct: 95 },
+                { label: "Direção criativa", pct: 92 },
+                { label: "Edição para social", pct: 88 },
               ].map(({ label, pct }) => (
                 <div key={label}>
                   <div className="flex justify-between text-xs font-mono mb-2">
@@ -77,21 +78,40 @@ export function AboutSection() {
           <div className="space-y-5">
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=80"
-                alt="Equipe em reunião criativa"
+                src="/media/aniversario-15-retrato.jpg"
+                alt="Aniversariante em festa de 15 anos"
                 className="w-full h-44 object-cover rounded-2xl border border-white/10"
                 loading="lazy"
+                onError={(e) => { e.currentTarget.src = fallbackMedia; }}
               />
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80"
-                alt="Dashboard e estratégia digital"
+                src="/media/familia-branco.jpg"
+                alt="Família reunida em ensaio"
                 className="w-full h-44 object-cover rounded-2xl border border-white/10"
                 loading="lazy"
+                onError={(e) => { e.currentTarget.src = fallbackMedia; }}
               />
             </div>
 
+            <img
+              src="/media/cenario-roxo-15.jpg"
+              alt="Cenário decorado em tons roxos"
+              className="w-full h-56 object-cover rounded-2xl border border-white/10"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.src = fallbackMedia; }}
+            />
+
+            <img
+              src="/media/cha-revelacao-casal.jpg"
+              alt="Casal em ensaio de gestação"
+              className="w-full h-56 object-cover rounded-2xl border border-white/10"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.src = fallbackMedia; }}
+            />
+
             <VideoPlayer
-              src="https://player.vimeo.com/external/434045526.sd.mp4?s=f7e7aa3ef7db4be6d26f737e7981c2f7f2369d6d&profile_id=139&oauth2_token_id=57447761"
+              src="https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761"
+              poster="/media/aniversario-15-retrato.jpg"
               className="rounded-2xl border border-white/10"
               autoPlay
               muted
