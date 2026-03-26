@@ -43,18 +43,6 @@ const services = [
     accentAlpha: "rgba(160,32,240,",
   },
   {
-    id: "trafego",
-    icon: Megaphone,
-    number: "04",
-    title: "Gestão de Tráfego",
-    shortDesc: "Anúncios que convertem no Meta Ads, Google e TikTok Ads.",
-    fullDesc:
-      "Criação, otimização e monitoramento de campanhas pagas para gerar leads, vendas e reconhecimento de marca com o melhor custo-benefício possível.",
-    features: ["Meta Ads", "Google Ads", "TikTok Ads", "Remarketing"],
-    accent: "var(--color-neon-cyan)",
-    accentAlpha: "rgba(0,255,255,",
-  },
-  {
     id: "foto-video",
     icon: Camera,
     number: "05",
@@ -65,19 +53,7 @@ const services = [
     features: ["Ensaios de marca", "Reels & TikToks", "Vídeos institucionais", "Edição avançada"],
     accent: "var(--color-neon-purple)",
     accentAlpha: "rgba(160,32,240,",
-  },
-  {
-    id: "branding",
-    icon: BarChart3,
-    number: "06",
-    title: "Branding & Posicionamento",
-    shortDesc: "Construção de marca com profundidade, propósito e distinção.",
-    fullDesc:
-      "Nomeação, criação de logotipo, paleta de cores, tipografia, tom de voz e manual de marca. Construímos o alicerce para que sua comunicação seja sempre coerente e reconhecível.",
-    features: ["Naming", "Logo & identidade", "Manual de marca", "Tom de voz"],
-    accent: "var(--color-neon-cyan)",
-    accentAlpha: "rgba(0,255,255,",
-  },
+  }
 ];
 
 export function ServicesSection() {

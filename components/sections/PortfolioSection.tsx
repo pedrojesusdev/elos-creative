@@ -9,7 +9,7 @@ import { VideoPlayer } from "@/components/ui/VideoPlayer";
 type PortfolioItem = {
   id: number;
   type: "image" | "video";
-  category: "Branding" | "Social Media" | "Design";
+  category: "Fotos" | "Videos";
   title: string;
   description: string;
   src: string;
@@ -22,32 +22,32 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
     type: "image",
-    category: "Branding",
+    category: "Fotos",
     title: "Festa de 15 anos — Direção Criativa",
     description: "Cobertura visual com foco em storytelling para debutante, cenografia e conteúdo para redes sociais.",
-    src: "/media/aniversario-15-retrato.jpg",
-    thumb: "/media/aniversario-15-retrato.jpg",
+    src: "./media/aniversario-15-retrato.jpg",
+    thumb: "./media/aniversario-15-retrato.jpg",
     tags: ["Evento", "Cobertura", "Storytelling"],
     color: "#A020F0",
   },
   {
     id: 2,
     type: "video",
-    category: "Social Media",
-    title: "Making of da festa — Reels",
-    description: "Vídeo vertical com cortes rápidos mostrando bastidores, mesa principal e momento da aniversariante.",
-    src: "https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761",
-    thumb: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&q=80",
+    category: "Videos",
+    title: "Teaser Debutante",
+    description: "Vídeo vertical com cortes rápidos mostrando os melhores momentos de um evento de 15 anos, otimizado para engajamento em redes sociais e impulsionamento de anúncios.",
+    src: "./media/video-aniversario.mov",
+    thumb: "./media/imagem-aniversario.png",
     tags: ["Reels", "Meta Ads", "Motion"],
     color: "#00E8FF",
   },
   {
     id: 3,
     type: "image",
-    category: "Design",
+    category: "Fotos",
     title: "Família em branco — Ensaio lifestyle",
     description: "Ensaio familiar para conteúdo emocional e humanizado com foco em conexão e naturalidade.",
-    src: "/media/familia-branco.jpg",
+    src: "./media/familia-branco.jpg",
     thumb: "/media/familia-branco.jpg",
     tags: ["Rebranding", "Editorial", "Digital"],
     color: "#A020F0",
@@ -55,10 +55,10 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 4,
     type: "image",
-    category: "Branding",
+    category: "Fotos",
     title: "Cenografia roxa — Mesa principal",
     description: "Captação do cenário completo com paleta roxa e elementos decorativos para peças de divulgação.",
-    src: "/media/cenario-roxo-15.jpg",
+    src: "./media/cenario-roxo-15.jpg",
     thumb: "/media/cenario-roxo-15.jpg",
     tags: ["Instagram", "Conteúdo", "Estética"],
     color: "#00E8FF",
@@ -66,10 +66,10 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 5,
     type: "image",
-    category: "Design",
+    category: "Fotos",
     title: "Chá revelação — ensaio gestante",
     description: "Registro sensível do casal em cenário clean para narrativa de maternidade e família.",
-    src: "/media/cha-revelacao-casal.jpg",
+    src: "./media/cha-revelacao-casal.jpg",
     thumb: "/media/cha-revelacao-casal.jpg",
     tags: ["Vídeo", "Storytelling", "Branding"],
     color: "#A020F0",
@@ -77,17 +77,17 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 6,
     type: "video",
-    category: "Social Media",
-    title: "Edição teaser — festa de 15",
+    category: "Videos",
+    title: "Teaser casamento",
     description: "Teaser audiovisual com foco em impacto inicial para impulsionamento nas redes sociais.",
-    src: "https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761",
-    thumb: "/media/aniversario-15-retrato.jpg",
+    src: "./media/video-casamento.mp4",
+    thumb: "./media/imagem-noiva.png",
     tags: ["Lançamento", "Reels", "Estratégia"],
     color: "#00E8FF",
   },
 ];
 
-const categories = ["Todos", "Branding", "Social Media", "Design"];
+const categories = ["Todos", "Fotos", "Videos"];
 
 const fallbackMedia = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect width='1200' height='900' fill='%231A1A1A'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23F5F5F5' font-family='Arial' font-size='40'%3EM%C3%ADdia%20Elos%3C/text%3E%3C/svg%3E";
 

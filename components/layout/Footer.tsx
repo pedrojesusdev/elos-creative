@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Instagram, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
-const services = ["Social Media Management", "Design Criativo", "Estratégia Digital", "Branding", "Identidade Visual"];
+const services = ["Social Media Management", "Design Criativo", "Estratégia Digital"];
 const links = [
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "E-mail", href: "mailto:oi@eloscreative.com.br", icon: Mail },
+  { label: "Instagram", href: "https://www.instagram.com/eloscreativebr/", icon: Instagram },
+  { label: "E-mail", href: "mailto:eloscreativebr@gmail.com", icon: Mail },
 ];
 
 export function Footer() {
@@ -69,7 +68,7 @@ export function Footer() {
             © {new Date().getFullYear()} Elos Creative. Todos os direitos reservados.
           </p>
           <p className="text-xs text-offwhite/25 font-mono">
-            Feito com <span style={{ color: "var(--color-neon-purple)" }}>■</span> e muita estratégia.
+            Site feito por <a style={{ color: "var(--color-neon-purple)" }} href="https://pedroportfolio-one.vercel.app">Pedro Jesus</a>
           </p>
         </div>
       </div>

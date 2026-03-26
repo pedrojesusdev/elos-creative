@@ -78,14 +78,14 @@ export function AboutSection() {
           <div className="space-y-5">
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="/media/aniversario-15-retrato.jpg"
+                src="./media/aniversario-15-retrato.jpg"
                 alt="Aniversariante em festa de 15 anos"
                 className="w-full h-44 object-cover rounded-2xl border border-white/10"
                 loading="lazy"
                 onError={(e) => { e.currentTarget.src = fallbackMedia; }}
               />
               <img
-                src="/media/familia-branco.jpg"
+                src="./media/familia-branco.jpg"
                 alt="Família reunida em ensaio"
                 className="w-full h-44 object-cover rounded-2xl border border-white/10"
                 loading="lazy"
@@ -94,7 +94,7 @@ export function AboutSection() {
             </div>
 
             <img
-              src="/media/cenario-roxo-15.jpg"
+              src="./media/cenario-roxo-15.jpg"
               alt="Cenário decorado em tons roxos"
               className="w-full h-56 object-cover rounded-2xl border border-white/10"
               loading="lazy"
@@ -102,7 +102,7 @@ export function AboutSection() {
             />
 
             <img
-              src="/media/cha-revelacao-casal.jpg"
+              src="./media/cha-revelacao-casal.jpg"
               alt="Casal em ensaio de gestação"
               className="w-full h-56 object-cover rounded-2xl border border-white/10"
               loading="lazy"
@@ -110,8 +110,8 @@ export function AboutSection() {
             />
 
             <VideoPlayer
-              src="https://player.vimeo.com/external/368763602.sd.mp4?s=3368e63efef8f34f97a6bca40d0132f31f3e3f9d&profile_id=139&oauth2_token_id=57447761"
-              poster="/media/aniversario-15-retrato.jpg"
+              src="./media/video-aniversario.mov"
+              poster="/media/imagem-aniversario.png "
               className="rounded-2xl border border-white/10"
               autoPlay
               muted
