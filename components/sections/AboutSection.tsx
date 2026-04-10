@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, StaggerReveal, StaggerItem } from "@/components/animations/Reveal";
 import { Zap, Target, Eye, Heart } from "lucide-react";
-import { VideoPlayer } from "@/components/ui/VideoPlayer";
 
 const values = [
   { icon: Zap, label: "Criatividade sem limites", desc: "Cada projeto é único, construído do zero com identidade própria." },
@@ -29,10 +28,10 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div>
             <Reveal>
-              <span className="section-label">Sobre a Elos</span>
+              <span className="section-label text-[10px] tracking-[0.14em]">Sobre a Elos</span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-display font-black text-display-lg text-offwhite mb-6">
+              <h2 className="font-display font-black text-5xl text-offwhite mb-6">
                 Conexões que <span style={{ color: "var(--color-neon-purple)" }}>transformam</span>
                 <br />momentos em conteúdo.
               </h2>
@@ -109,14 +108,12 @@ export function AboutSection() {
               onError={(e) => { e.currentTarget.src = fallbackMedia; }}
             />
 
-            <VideoPlayer
-              src="./media/video-aniversario.mov"
-              poster="/media/imagem-aniversario.png "
-              className="rounded-2xl border border-white/10"
-              autoPlay
-              muted
-              loop
-              showControls
+            <img
+              src="./media/imagem-noiva.png"
+              alt="Noiva em retrato editorial"
+              className="w-full h-56 object-cover rounded-2xl border border-white/10"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.src = fallbackMedia; }}
             />
 
             <StaggerReveal staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
