@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "Conectamos marcas com pessoas através de estratégia digital, design criativo e gestão de social media de alto impacto.",
   keywords: ["social media", "design criativo", "agência digital", "estratégia digital", "branding"],
   authors: [{ name: "Elos Creative" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Elos Creative — Agência de Social Media & Design",
     description: "Conectamos marcas com pessoas através de estratégia digital e design de alto impacto.",
