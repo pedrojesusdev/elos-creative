@@ -31,7 +31,7 @@ export function AboutSection() {
               <span className="section-label text-[10px] tracking-[0.14em]">Sobre a Elos</span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-display font-black text-5xl text-offwhite mb-6">
+              <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-offwhite mb-6 leading-tight">
                 Conexões que <span style={{ color: "var(--color-neon-purple)" }}>transformam</span>
                 <br />momentos em conteúdo.
               </h2>
