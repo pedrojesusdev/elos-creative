@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/animations/Reveal";
-import { Send, ArrowRight, CheckCircle } from "lucide-react";
+import { Send, ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
 
 export function CtaSection() {
   const [form, setForm] = useState({ name: "", email: "", brand: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const whatsappUrl = "https://wa.me/557996471730";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,7 +82,7 @@ export function CtaSection() {
                   ))}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-offwhite">+150 marcas já transformaram</p>
+                  <p className="text-sm font-semibold text-offwhite">25 marcas já transformaram</p>
                   <p className="text-xs text-offwhite/40 font-mono">sua presença digital com a Elos</p>
                 </div>
               </div>
@@ -96,78 +97,94 @@ export function CtaSection() {
                 style={{ background: "radial-gradient(ellipse, rgba(160,32,240,0.08) 0%, transparent 70%)" }} />
 
               {!sent ? (
-                <form onSubmit={handleSubmit} className="space-y-5 relative">
-                  <div>
-                    <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                      Seu nome
-                    </label>
-                    <input
-                      className={inputClass}
-                      placeholder="Como podemos te chamar?"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                      E-mail
-                    </label>
-                    <input
-                      type="email"
-                      className={inputClass}
-                      placeholder="seu@email.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                      Sua marca
-                    </label>
-                    <input
-                      className={inputClass}
-                      placeholder="Nome da empresa ou projeto"
-                      value={form.brand}
-                      onChange={(e) => setForm({ ...form, brand: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                      Como podemos ajudar?
-                    </label>
-                    <textarea
-                      className={`${inputClass} resize-none`}
-                      rows={4}
-                      placeholder="Fale sobre seus objetivos, desafios ou o que você precisa..."
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                <div className="space-y-4 relative">
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
+                        Seu nome
+                      </label>
+                      <input
+                        className={inputClass}
+                        placeholder="Como podemos te chamar?"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
+                        E-mail
+                      </label>
+                      <input
+                        type="email"
+                        className={inputClass}
+                        placeholder="seu@email.com"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
+                        Sua marca
+                      </label>
+                      <input
+                        className={inputClass}
+                        placeholder="Nome da empresa ou projeto"
+                        value={form.brand}
+                        onChange={(e) => setForm({ ...form, brand: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
+                        Como podemos ajudar?
+                      </label>
+                      <textarea
+                        className={`${inputClass} resize-none`}
+                        rows={4}
+                        placeholder="Fale sobre seus objetivos, desafios ou o que você precisa..."
+                        value={form.message}
+                        onChange={(e) => setForm({ ...form, message: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {loading ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                          />
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          Enviar mensagem
+                          <Send size={15} />
+                        </>
+                      )}
+                    </button>
+                  </form>
+
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full rounded-xl px-5 py-4 flex items-center justify-center gap-3 text-sm font-semibold text-offwhite transition-all duration-300 hover:-translate-y-0.5"
+                    style={{
+                      background: "rgba(37, 211, 102, 0.12)",
+                      border: "1px solid rgba(37, 211, 102, 0.28)",
+                    }}
                   >
-                    {loading ? (
-                      <>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
-                        />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        Enviar mensagem
-                        <Send size={15} />
-                      </>
-                    )}
-                  </button>
-                </form>
+                    <MessageCircle size={18} />
+                    Conversar no WhatsApp
+                  </a>
+                </div>
               ) : (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}

@@ -87,8 +87,6 @@ const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-const categories = ["Todos", "Fotos", "Videos"];
-
 const fallbackMedia = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect width='1200' height='900' fill='%231A1A1A'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23F5F5F5' font-family='Arial' font-size='40'%3EM%C3%ADdia%20Elos%3C/text%3E%3C/svg%3E";
 
 function PortfolioCard({ item, onClick }: { item: PortfolioItem; onClick: () => void }) {
@@ -183,12 +181,7 @@ function Lightbox({ item, onClose, onPrev, onNext }: {
 }
 
 export function PortfolioSection() {
-  const [activeCategory, setActiveCategory] = useState("Todos");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
-
-  const filtered = activeCategory === "Todos"
-    ? portfolioItems
-    : portfolioItems.filter((i) => i.category === activeCategory);
 
   return (
     <section id="portfolio" className="relative py-32 overflow-hidden">
@@ -196,7 +189,7 @@ export function PortfolioSection() {
         style={{ background: "radial-gradient(ellipse, rgba(0,232,255,0.05) 0%, transparent 70%)" }} />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="mb-12">
           <div>
             <Reveal><span className="section-label">Portfólio</span></Reveal>
             <Reveal delay={0.1}>
@@ -205,33 +198,11 @@ export function PortfolioSection() {
               </h2>
             </Reveal>
           </div>
-
-          <Reveal delay={0.2} direction="left">
-            <div className="flex gap-2 flex-wrap">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className="px-4 py-2 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-300"
-                  style={activeCategory === cat ? {
-                    background: "rgba(160,32,240,0.85)",
-                    color: "#F5F5F5",
-                  } : {
-                    background: "rgba(245,245,245,0.07)",
-                    color: "rgba(245,245,245,0.7)",
-                    border: "1px solid rgba(245,245,245,0.1)",
-                  }}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </Reveal>
         </div>
 
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
-            {filtered.map((item, idx) => (
+            {portfolioItems.map((item, idx) => (
               <motion.div key={item.id} layout initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.94 }} transition={{ duration: 0.3 }}>
                 <PortfolioCard item={item} onClick={() => setLightboxIdx(idx)} />
               </motion.div>
@@ -241,12 +212,12 @@ export function PortfolioSection() {
       </div>
 
       <AnimatePresence>
-        {lightboxIdx !== null && filtered[lightboxIdx] && (
+        {lightboxIdx !== null && portfolioItems[lightboxIdx] && (
           <Lightbox
-            item={filtered[lightboxIdx]}
+            item={portfolioItems[lightboxIdx]}
             onClose={() => setLightboxIdx(null)}
-            onPrev={() => setLightboxIdx((lightboxIdx - 1 + filtered.length) % filtered.length)}
-            onNext={() => setLightboxIdx((lightboxIdx + 1) % filtered.length)}
+            onPrev={() => setLightboxIdx((lightboxIdx - 1 + portfolioItems.length) % portfolioItems.length)}
+            onNext={() => setLightboxIdx((lightboxIdx + 1) % portfolioItems.length)}
           />
         )}
       </AnimatePresence>

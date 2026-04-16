@@ -7,40 +7,25 @@ import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Mariana Costa",
-    role: "CEO, Marca Âmbar",
-    avatar: "MC",
-    text: "A Elos Creative transformou completamente nossa presença digital. Em 3 meses, nosso Instagram cresceu 280% e as vendas via social media dobraram. Design impecável, estratégia certeira.",
-    stars: 5,
-    highlight: "cresceu 280%",
+    name: "Vanessa Cabral",
+    role: "Magic Trip Viagens",
+    avatar: "VC",
+    text: "O trabalho de filmmaker realizado por Helena tem sido essencial para fortalecer a imagem da minha agência, transmitir emoção e valorizar cada experiência que entregamos aos nossos clientes. A qualidade dos vídeos, o olhar criativo nas captações e a forma como cada detalhe é transformado em conteúdo fazem toda a diferença na apresentação. O serviço dela é muito especial, pois ela consegue fazer a gente transmitir tudo da forma correta e essencial para os meus clientes. É um trabalho que não mostra apenas imagens, mas desperta desejo, transmite confiança e aproxima ainda mais os clientes da nossa proposta.",
     accentColor: "#A020F0",
   },
   {
-    name: "Lucas Ferreira",
-    role: "Fundador, FoodLab",
-    avatar: "LF",
-    text: "Contratamos a Elos para o lançamento da nossa plataforma e foi a melhor decisão. A identidade visual é exatamente o que a gente sonhava — e o engajamento no lançamento superou todas as nossas expectativas.",
-    stars: 5,
-    highlight: "melhor decisão",
+    name: "Day Araújo",
+    role: "D'comfort Ortobom",
+    avatar: "DA",
+    text: "Helena, eu precisava te falar isso… Tô gostando MUITO do teu trabalho! Você tá conseguindo transformar exatamente o que eu penso em vídeo, e isso faz toda diferença. Obrigada pelo cuidado e dedicação, de verdade",
     accentColor: "#00FFFF",
   },
   {
-    name: "Renata Vaz",
-    role: "Arquiteta & Designer",
-    avatar: "RV",
-    text: "Profissionalismo em outro nível. A equipe entendeu minha essência já na primeira reunião e entregou uma identidade que comunica exatamente quem eu sou para o meu público ideal.",
-    stars: 5,
-    highlight: "outro nível",
+    name: "Helida Vinhas",
+    role: "salão el shammah",
+    avatar: "HV",
+    text: "Helena parabéns pela paciência,os vídeos que vc fez pra mim ,ficaram ótimas tanto às edições como as imagens,muito obrigada.",
     accentColor: "#A020F0",
-  },
-  {
-    name: "Pedro Alves",
-    role: "Diretor, EduTech Nexo",
-    avatar: "PA",
-    text: "Além do design bonito, o que me impressionou foi a visão estratégica. Eles não apenas criam conteúdo — eles pensam no negócio como um todo e isso faz toda a diferença nos resultados.",
-    stars: 5,
-    highlight: "visão estratégica",
-    accentColor: "#00FFFF",
   },
 ];
 
@@ -99,24 +84,10 @@ export function TestimonialsSection() {
                 </div>
               </div>
 
-              {/* Stars */}
-              <div className="flex justify-center gap-1 mb-6">
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-current" style={{ color: "#FFD700" }} />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <blockquote className="text-offwhite/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
-                {t.text.split(t.highlight).map((part, i, arr) => (
-                  <span key={i}>
-                    {part}
-                    {i < arr.length - 1 && (
-                      <span style={{ color: t.accentColor, fontWeight: 600 }}>{t.highlight}</span>
-                    )}
-                  </span>
-                ))}
-              </blockquote>
+              {/* Text */}
+              <p className="font-text font-medium text-offwhite text-lg italic">
+                "{t.text}"
+              </p>
 
               {/* Avatar */}
               <div className="flex items-center justify-center gap-4">

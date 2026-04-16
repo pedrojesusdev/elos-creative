@@ -209,9 +209,9 @@ export function HeroSection() {
           className="flex flex-wrap justify-center gap-12 mt-20 pt-10 border-t border-white/5"
         >
           {[
-            { value: "150+", label: "Marcas atendidas" },
-            { value: "3M+", label: "Alcance orgânico" },
-            { value: "97%", label: "Satisfação dos clientes" },
+            { value: "25", label: "Marcas atendidas" },
+            { value: "1M+", label: "Alcance orgânico" },
+            { value: "96%", label: "Satisfação dos clientes" },
           ].map(({ value, label }) => (
             <div key={label} className="text-center">
               <p className="font-display font-black text-3xl md:text-4xl mb-1"
