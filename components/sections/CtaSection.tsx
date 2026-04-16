@@ -1,26 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
 import { Reveal } from "@/components/animations/Reveal";
-import { Send, ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 export function CtaSection() {
-  const [form, setForm] = useState({ name: "", email: "", brand: "", message: "" });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
   const whatsappUrl = "https://wa.me/557996471730";
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setSent(true);
-    setLoading(false);
-  };
-
-  const inputClass =
-    "w-full bg-white/[0.04] border border-white/8 rounded-xl px-5 py-4 text-sm text-offwhite placeholder-offwhite/25 font-body focus:outline-none focus:border-[var(--color-neon-purple)] focus:bg-white/[0.06] transition-all duration-300";
 
   return (
     <section id="contato" className="relative py-32 overflow-hidden">
@@ -89,121 +73,63 @@ export function CtaSection() {
             </Reveal>
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Helena Contact Card */}
           <Reveal delay={0.2} direction="left">
-            <div className="card-glass rounded-3xl p-8 md:p-10 relative overflow-hidden">
+            <div className="card-glass rounded-3xl p-12 md:p-10 relative overflow-hidden">
               {/* Card glow */}
               <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full pointer-events-none"
                 style={{ background: "radial-gradient(ellipse, rgba(160,32,240,0.08) 0%, transparent 70%)" }} />
 
-              {!sent ? (
-                <div className="space-y-4 relative">
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                        Seu nome
-                      </label>
-                      <input
-                        className={inputClass}
-                        placeholder="Como podemos te chamar?"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        required
+              <div className="relative space-y-8 text-center">
+                {/* Profile Photo */}
+                <div className="flex justify-center">
+                  <div className="relative">
+                    <div className="w-48 h-56 rounded-2xl overflow-hidden border border-white/10"
+                      style={{ boxShadow: "0 0 30px rgba(160,32,240,0.2)" }}>
+                      <img
+                        src="/media/helena.jpg"
+                        alt="Helena - Elos Creative"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div>
-                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                        E-mail
-                      </label>
-                      <input
-                        type="email"
-                        className={inputClass}
-                        placeholder="seu@email.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        required
-                      />
+                    <div className="absolute -top-2 -right-2 w-14 h-14 rounded-full flex items-center justify-center"
+                      style={{ background: "linear-gradient(135deg, #A020F0, #00FFFF)", boxShadow: "0 0 20px rgba(160,32,240,0.6)" }}>
+                      <MessageCircle size={24} className="text-white" />
                     </div>
-                    <div>
-                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                        Sua marca
-                      </label>
-                      <input
-                        className={inputClass}
-                        placeholder="Nome da empresa ou projeto"
-                        value={form.brand}
-                        onChange={(e) => setForm({ ...form, brand: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-mono text-xs tracking-widest uppercase text-offwhite/30 mb-2">
-                        Como podemos ajudar?
-                      </label>
-                      <textarea
-                        className={`${inputClass} resize-none`}
-                        rows={4}
-                        placeholder="Fale sobre seus objetivos, desafios ou o que você precisa..."
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {loading ? (
-                        <>
-                          <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
-                          />
-                          Enviando...
-                        </>
-                      ) : (
-                        <>
-                          Enviar mensagem
-                          <Send size={15} />
-                        </>
-                      )}
-                    </button>
-                  </form>
-
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full rounded-xl px-5 py-4 flex items-center justify-center gap-3 text-sm font-semibold text-offwhite transition-all duration-300 hover:-translate-y-0.5"
-                    style={{
-                      background: "rgba(37, 211, 102, 0.12)",
-                      border: "1px solid rgba(37, 211, 102, 0.28)",
-                    }}
-                  >
-                    <MessageCircle size={18} />
-                    Conversar no WhatsApp
-                  </a>
-                </div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10"
-                >
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                    style={{ background: "rgba(0,255,255,0.1)", border: "1px solid rgba(0,255,255,0.3)" }}>
-                    <CheckCircle size={28} style={{ color: "var(--color-neon-cyan)" }} />
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-offwhite mb-3">
-                    Mensagem recebida!
+                </div>
+
+                {/* Name and Title */}
+                <div>
+                  <h3 className="font-display font-black text-2xl md:text-3xl text-offwhite mb-2">
+                    Helena
                   </h3>
-                  <p className="text-offwhite/50 text-sm leading-relaxed">
-                    Obrigada pelo contato. Nossa equipe vai analisar suas informações e
-                    retornar em até <span style={{ color: "var(--color-neon-cyan)" }}>24 horas úteis</span>.
+                  <p className="font-mono text-sm tracking-widest uppercase text-offwhite/50">
+                    Elos Creative
                   </p>
-                </motion.div>
-              )}
+                </div>
+
+                {/* Description */}
+                <p className="text-offwhite/60 text-sm leading-relaxed">
+                  Conectamos marcas com pessoas certas através de estratégia digital, design criativo e histórias que transformam.
+                </p>
+
+                {/* WhatsApp Button */}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-offwhite transition-all duration-300 hover:-translate-y-1 w-full"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.08))",
+                    border: "1px solid rgba(37, 211, 102, 0.4)",
+                    boxShadow: "0 0 20px rgba(37, 211, 102, 0.15)"
+                  }}
+                >
+                  <MessageCircle size={20} style={{ color: "#25D366" }} />
+                  <span>Conversar no WhatsApp</span>
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
